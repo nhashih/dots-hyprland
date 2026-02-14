@@ -1,0 +1,92 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "on-click": "activate",
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "interval": 60,
+        "rotate": 0,
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-down": "brightnessctl set 5%+",
+        "on-scroll-up": "brightnessctl set 5%-",
+        "min-length": 5
+    },
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 35,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰂃",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "  Muted",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
+        "scroll-step": 5,
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰖪 No Internet",
+        "format-alt": "<span foreground='#94e2d5'> {bandwidthDownBytes}</span> <span foreground='#f9e2af'> {bandwidthUpBytes}</span>",
+        "interval": 15
+    }
+}
